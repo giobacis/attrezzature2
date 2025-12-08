@@ -1,0 +1,17 @@
+
+--- Patch istruzioni per pages/register.php ---
+
+1) Aggiungi in testa:
+   require __DIR__.'/../includes/mail_helper.php';
+
+2) Sostituisci il blocco PHPMailer con:
+   $subject = 'Conferma registrazione';
+   $fullUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']==='on' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $verifyUrl;
+   $body    = "Ciao,
+conferma la tua registrazione cliccando questo link:
+".$fullUrl."
+
+Se non hai richiesto l'account ignora questa email.";
+   send_app_mail($email, $subject, $body);
+
+3) Assicurati che includes/smtp_config.php abbia App Password SENZA spazi e From = SMTP_USERNAME.

@@ -1,0 +1,7 @@
+
+<?php
+// Esempio di integrazione da inserire in cima a pages/catalogo.php
+require __DIR__.'/../includes/session_boot.php';
+?>
+<!— Inserisci subito sotto l'apertura del <body> -->
+<?php include __DIR__.'/../includes/user_badge.php'; ?>

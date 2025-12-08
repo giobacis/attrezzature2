@@ -1,0 +1,18 @@
+
+--- Step 2 — Patch prenotazioni (linee guida) ---
+
+1) Salvataggio email utente in tbl_movmg (o tabella prenotazioni):
+   - Prima dell'INSERT raccogli l'email dalla sessione:
+     $email = $_SESSION['email'] ?? '';
+     if ($email === '') { /* blocca o richiedi login */ }
+   - Nell'INSERT aggiungi il campo email (es. :em) e passa il valore.
+
+2) Notifiche su Approva/Rifiuta/Rientro:
+   - Includi: require __DIR__.'/../includes/mail_helper.php';
+   - Prepara $subject/$body coerenti (include ID prenotazione, date e stato) e invia con send_app_mail($emailUtente, ...).
+
+3) Ruoli e accessi:
+   - In testa alle pagine back-end: $required_role='IT'; require __DIR__.'/../includes/auth_check.php';
+   - Per funzioni solo admin: $required_role='ADMIN';
+
+Se vuoi, inviami i nomi dei file esatti delle pagine di prenotazioni (approvazione/rifiuto/rientro) e preparo patch mirata.

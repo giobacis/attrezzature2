@@ -1,0 +1,11 @@
+
+:root { --brand: #0d6efd; }
+.card .badge { text-transform: none; }
+.card-title { line-height: 1.25; }
+.list-group-item.active { background-color: var(--brand); border-color: var(--brand); color: #fff; }
+.object-fit-cover { object-fit: cover; }
+.input-group .form-control { border-left: 0; }
+.input-group-text { background: transparent; }
+.btn:focus, .form-select:focus, .form-control:focus { box-shadow: 0 0 0 .25rem rgba(13,110,253,.25); }
+[data-bs-theme="dark"] .card { border-color: #2f2f2f; }
+[data-bs-theme="dark"] .ratio { background-color: #1f1f1f; }

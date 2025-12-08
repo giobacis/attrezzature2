@@ -1,0 +1,26 @@
+# Cartelle di sistema
+.DS_Store
+Thumbs.db
+
+# Configurazioni locali
+.vscode/
+.idea/
+
+# Cache e log
+*.log
+*.tmp
+cache/
+tmp/
+
+# Vendor e dipendenze
+vendor/
+node_modules/
+
+# File sensibili
+.env
+config.php
+.htaccess
+
+# Backup
+*.bak
+*.old

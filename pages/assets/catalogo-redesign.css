@@ -1,0 +1,14 @@
+/* catalogo-redesign.css — redesign + mobile-first + modal fixes */
+.hero-cta{background:linear-gradient(135deg,#0d6efd 0%,#7a5cf3 50%,#3cc7a5 100%);} 
+.card-elevated{border:none;box-shadow:0 10px 20px rgba(0,0,0,.08);} 
+.card-elevated .badge{ text-transform:none; }
+.list-group-item.active{background-color:#0d6efd;border-color:#0d6efd;}
+.input-group-lg .input-group-text{background:#f5f7fb;} .input-group-lg .form-control{border-left:0;}
+.btn:focus,.form-select:focus,.form-control:focus{box-shadow:0 0 0 .25rem rgba(13,110,253,.25);} 
+.mobile-cta{position:sticky;bottom:0;z-index:1020;background:rgba(255,255,255,.95);backdrop-filter:saturate(140%) blur(6px);border-top:1px solid rgba(0,0,0,.08);} 
+@media (max-width:576px){ .hero-cta .container{padding-top:1.25rem;padding-bottom:1.25rem;} .hero-cta h1{font-size:1.35rem;} .hero-cta .lead{font-size:.95rem;} .card .small, .card small{font-size:.9rem;} .btn{padding:.45rem .75rem;} .input-group .form-control{height:2.5rem;} }
+.sticky-top{position:-webkit-sticky;position:sticky;}
+@supports (height: 100dvh) { .modal-fullscreen-sm-down .modal-content { max-height: 100dvh; display:flex; flex-direction:column; } }
+@supports not (height: 100dvh) { .modal-fullscreen-sm-down .modal-content { max-height: 100vh; display:flex; flex-direction:column; } }
+.modal-dialog-scrollable .modal-body { overflow:auto; }
+@supports (padding-bottom: env(safe-area-inset-bottom)) { .modal-footer { padding-bottom: calc(1rem + env(safe-area-inset-bottom)); } }
