@@ -1,0 +1,84 @@
+
+/* home.css — stili per le card della home (Bootstrap 5) */
+
+/* Variabili locali alla home */
+:root {
+  --home-card-radius: 14px;
+  --home-shadow-1: 0 8px 18px rgba(0,0,0,0.08);
+  --home-shadow-2: 0 12px 24px rgba(0,0,0,0.12);
+
+  /* Colori coerenti con Bootstrap 5 */
+  --home-success: #198754; /* Prenotazioni */
+  --home-purple:  #6f42c1; /* Guida */
+  --text-on-dark: #ffffff;
+}
+
+/* Card base */
+.home-card {
+  border: none;
+  border-radius: var(--home-card-radius);
+  box-shadow: var(--home-shadow-1);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  overflow: hidden;
+  min-height: 160px;
+}
+
+.home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--home-shadow-2);
+  filter: saturate(1.05);
+}
+
+/* Testi ereditano il colore del contenitore */
+.home-card .card-title,
+.home-card .card-text { color: inherit; }
+
+/* Bottone: “solo bottone” su sfondo scuro */
+.home-card .btn-home {
+  background: rgba(255,255,255,0.20);
+  color: #fff;
+  border: none;
+}
+.home-card .btn-home:hover {
+  background: rgba(255,255,255,0.35);
+}
+.home-card .btn-home:focus {
+  outline: 2px solid rgba(255,255,255,0.85);
+  outline-offset: 2px;
+}
+
+.home-card .card-body {
+  padding: 1.25rem;
+}
+
+/* Varianti colore delle tre card */
+/* Catalogo: usa la tua variabile --brand da /pages/catalogo.css */
+.home-card.catalogo {
+  background: linear-gradient(135deg, var(--brand) 0%, #3d8bfd 100%);
+  color: var(--text-on-dark);
+}
+
+/* Prenotazioni: verde Bootstrap */
+.home-card.prenotazioni {
+  background: linear-gradient(135deg, var(--home-success) 0%, #25a56a 100%);
+  color: var(--text-on-dark);
+}
+
+/* Guida: viola Bootstrap */
+.home-card.guida {
+  background: linear-gradient(135deg, var(--home-purple) 0%, #8b62d3 100%);
+  color: var(--text-on-dark);
+}
+
+/* Dark mode: conserva leggibilità e tono */
+[data-bs-theme="dark"] .home-card {
+  box-shadow: none; /* look più flat in dark */
+}
+[data-bs-theme="dark"] .home-card.catalogo {
+  background: linear-gradient(135deg, var(--brand) 0%, #246bff 100%);
+}
+[data-bs-theme="dark"] .home-card.prenotazioni {
+  background: linear-gradient(135deg, var(--home-success) 0%, #1f9a65 100%);
+}
+[data-bs-theme="dark"] .home-card.guida {
+  background: linear-gradient(135deg, var(--home-purple) 0%, #7a59d0 100%);}
