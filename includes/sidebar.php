@@ -1,4 +1,3 @@
-
 <?php
 // includes/sidebar.php
 ?>
@@ -12,10 +11,10 @@
     <a href="../pages/attrezzature.php"><i class="bi bi-tools me-2"></i> Attrezzature</a>
     <a href="../pages/categorie.php"><i class="bi bi-tags me-2"></i> Categorie</a>
     <a href="../pages/fornitori.php"><i class="bi bi-briefcase me-2"></i> Fornitori</a>
+    <a href="../pages/posizioni.php"><i class="bi bi-geo-alt me-2"></i> Ubicazioni</a>
+    <hr class="border-secondary" />
     <a href="../pages/gestione_prenotazioni.php"><i class="bi bi-ui-checks-grid me-2"></i> Prenotazioni</a>
     <a href="../pages/prenotazioni.php"><i class="bi bi-calendar3 me-2"></i> Calendario</a>
-    <hr class="border-secondary" />
-    <a href="../pages/posizioni.php"><i class="bi bi-geo-alt me-2"></i> Ubicazioni</a>
   </nav>
 </aside>
 <main class="app-content">

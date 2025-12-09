@@ -1,0 +1,50 @@
+
+/* theme.css — variabili tema e hero gradient */
+html[data-theme="light"], html:not([data-theme]) { /* default light */
+  --bg: #ffffff;
+  --text: #212529;
+  --muted: #6c757d;
+  --surface: #f8f9fa;
+  --border: #dee2e6;
+  --hero-start: #0d6efd;
+  --hero-end: #6ea8fe;
+}
+html[data-theme="dark"] {
+  --bg: #0f1216;
+  --text: #e9ecef;
+  --muted: #adb5bd;
+  --surface: #151a20;
+  --border: #344050;
+  --hero-start: #0a58ca;
+  --hero-end: #042f72;
+}
+/* auto: segue prefers-color-scheme */
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] {
+    --bg: #0f1216;
+    --text: #e9ecef;
+    --muted: #adb5bd;
+    --surface: #151a20;
+    --border: #344050;
+    --hero-start: #0a58ca;
+    --hero-end: #042f72;
+  }
+}
+
+body { background: var(--bg); color: var(--text); }
+.text-muted { color: var(--muted) !important; }
+.app-header, .app-footer, .sidebar { background: var(--surface); border-color: var(--border); }
+.card { background: var(--bg); border-color: var(--border); }
+.card-footer { border-color: var(--border); }
+
+/* HERO CTA: gradiente coerente con il tema */
+.hero-cta {
+  background: linear-gradient(90deg, var(--hero-start), var(--hero-end));
+  padding: 1rem 0; color: #fff;
+}
+.hero-cta .brand, .hero-cta .hero-user { color: #fff; }
+.hero-cta .btn-outline-light { border-color: rgba(255,255,255,.7); color: #fff; }
+.hero-cta .btn-outline-light:hover { background: rgba(255,255,255,.15); }
+
+/* Piccole utilità */
+.btn-light { color: #212529; }
