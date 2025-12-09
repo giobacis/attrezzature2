@@ -1,11 +1,12 @@
 
 <?php
-require '../includes/header.php';
-require '../includes/sidebar.php';
-require '../config/config.php';
+include __DIR__ . '/../includes/header.php';
+include __DIR__ . '/../includes/sidebar.php';
+include __DIR__ . '/../config.php';
 
-$stmt=$pdo->query("SELECT p.*, a.nome FROM prenotazioni p JOIN attrezzature a ON p.attrezzatura_id=a.id ORDER BY data_inizio DESC");
-$rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
+// Use existing booking table `tbl_movmg` and join hardware descriptions from `tbl_hardware`
+$stmt = $pdo->query("SELECT m.*, h.descrizione AS nome_attrezzatura FROM tbl_movmg m JOIN tbl_hardware h ON h.id = m.id_prodotto ORDER BY m.data_uscita DESC");
+$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <h2 class="mb-4">Prenotazioni</h2>
 <div class="table-responsive">
@@ -16,14 +17,14 @@ $rows=$stmt->fetchAll(PDO::FETCH_ASSOC);
 <tbody>
 <?php foreach($rows as $r): ?>
 <tr>
-<td><?= htmlspecialchars($r['nome']) ?></td>
-<td><?= htmlspecialchars($r['utente']) ?></td>
-<td><?= $r['data_inizio'] ?></td>
-<td><?= $r['data_fine'] ?></td>
-<td><span class="badge bg-info"><?= $r['stato'] ?></span></td>
-</tr>
+	<td><?= htmlspecialchars($r['nome_attrezzatura'] ?? '') ?></td>
+	<td><?= htmlspecialchars(trim(($r['nome'] ?? '') . ' ' . ($r['cognome'] ?? ''))) ?></td>
+	<td><?= htmlspecialchars($r['data_uscita'] ?? '') ?></td>
+	<td><?= htmlspecialchars($r['data_prev_rientro'] ?? '') ?></td>
+	<td><span class="badge bg-info"><?= htmlspecialchars($r['stato'] ?? '') ?></span></td>
+	</tr>
 <?php endforeach; ?>
 </tbody>
 </table>
 </div>
-<?php require '../includes/footer.php'; ?>
+<?php include __DIR__ . '/../includes/footer.php'; ?>
