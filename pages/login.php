@@ -46,36 +46,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- Allineamento grafico con index: usa common.css della app -->
+  <link rel="stylesheet" href="assets/css/common.css">
+  <!-- Micro-stili specifici del login: opzionale, puoi spostarli in assets/css/login.css -->
+  <style>
+    .login-wrap { min-height: 100vh; display: grid; place-items: center; padding: 2rem 1rem; }
+    .login-card { width: 100%; max-width: 420px; }
+    .brand-mini { display:flex; align-items:center; gap:.5rem; font-weight:700; margin-bottom: .75rem; }
+    .brand-mini span { font-size: 1.25rem; }
+  </style>
 </head>
 <body class="bg-light">
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-md-5">
-        <div class="card shadow-sm">
-          <div class="card-body p-4">
-            <h1 class="h4 mb-3">Accedi</h1>
-            <?php if ($error): ?>
-              <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($error); ?></div>
-            <?php endif; ?>
-            <form method="post" novalidate>
-              <div class="mb-3">
-                <label class="form-label">Email</label>
-                <input class="form-control" type="email" name="email" required>
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input class="form-control" type="password" name="password" required>
-              </div>
-              <button class="btn btn-primary w-100" type="submit">Accedi</button>
-            </form>
-            <div class="mt-3 d-flex justify-content-between">
-              <a href="register.php">Registrati</a>
-              <a href="catalogo.php">Vai al Catalogo</a>
-            </div>
+  <main class="login-wrap">
+    <div class="card login-card shadow-sm">
+      <div class="card-body p-4">
+        <div class="brand-mini"><span>🎒</span><span>Gestione Attrezzature</span></div>
+        <h1 class="h5 mb-3">Accedi</h1>
+        <?php if ($error): ?>
+          <div class="alert alert-danger" role="alert"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
+        <form method="post" novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="email">Email istituzionale</label>
+            <input class="form-control" type="email" id="email" name="email" autocomplete="username" required>
           </div>
+          <div class="mb-3">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" type="password" id="password" name="password" autocomplete="current-password" required>
+          </div>
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="remember" name="remember" value="1">
+            <label class="form-check-label" for="remember">Rimani connesso</label>
+          </div>
+          <button class="btn btn-primary w-100" type="submit">Accedi</button>
+        </form>
+        <hr class="my-4">
+        <div class="d-flex justify-content-between">
+          <a href="register.php">Registrati</a>
+          <a href="catalogo.php">Vai al Catalogo</a>
         </div>
       </div>
     </div>
-  </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

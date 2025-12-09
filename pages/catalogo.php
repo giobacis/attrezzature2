@@ -11,10 +11,32 @@ $id_stat_f = (int)($_GET['stato'] ?? 0);
 $id_pos_f  = (int)($_GET['posizione'] ?? 0);
 $solo_disp = (int)($_GET['solo_disp'] ?? 0);
 $where = [];$params = [];
-if ($q !== '') { $where[] = "(h.descrizione LIKE :q OR h.modello LIKE :q OR p.descrizione LIKE :q OR h.codice_prodotto LIKE :q OR h.seriale LIKE :q OR c.descrizione LIKE :q OR s.descrizione LIKE :q)"; $params[':q'] = '%'.$q.'%'; }
-if ($id_cat_f > 0) { $where[] = 'h.id_categoria = :id_categoria';   $params[':id_categoria']   = $id_cat_f; }
-if ($id_stat_f > 0) { $where[] = 'h.id_stato_disp = :id_stato_disp'; $params[':id_stato_disp'] = $id_stat_f; }
-if ($id_pos_f > 0) { $where[] = 'h.id_posizione   = :id_posizione';   $params[':id_posizione']  = $id_pos_f; }
+// if ($q !== '') { $where[] = "(h.descrizione LIKE :q OR h.modello LIKE :q OR p.descrizione LIKE :q OR h.codice_prodotto LIKE :q OR h.seriale LIKE :q OR c.descrizione LIKE :q OR s.descrizione LIKE :q)"; $params['q'] = '%'.$q.'%'; }
+
+if ($q !== '') {
+    $where[] = '('
+        . 'h.descrizione      LIKE :q1 OR '
+        . 'h.modello          LIKE :q2 OR '
+        . 'p.descrizione      LIKE :q3 OR '
+        . 'h.codice_prodotto  LIKE :q4 OR '
+        . 'h.seriale          LIKE :q5 OR '
+        . 'c.descrizione      LIKE :q6 OR '
+        . 's.descrizione      LIKE :q7'
+        . ')';
+
+    $like = '%'.$q.'%';
+    $params['q1'] = $like;
+    $params['q2'] = $like;
+    $params['q3'] = $like;
+    $params['q4'] = $like;
+    $params['q5'] = $like;
+    $params['q6'] = $like;
+    $params['q7'] = $like;
+}
+
+if ($id_cat_f > 0) { $where[] = 'h.id_categoria = :id_categoria';   $params['id_categoria']   = $id_cat_f; }
+if ($id_stat_f > 0) { $where[] = 'h.id_stato_disp = :id_stato_disp'; $params['id_stato_disp'] = $id_stat_f; }
+if ($id_pos_f > 0) { $where[] = 'h.id_posizione   = :id_posizione';   $params['id_posizione']  = $id_pos_f; }
 if ($solo_disp === 1) { $where[] = 'h.id_stato_disp = 9'; }
 $sql = "SELECT h.id,h.descrizione,h.modello,h.codice_prodotto,h.seriale,
                p.descrizione AS posizione,
@@ -38,6 +60,8 @@ function statoBadgeClass($id){ switch((int)$id){ case 9:return 'success';case 3:
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/catalogo-redesign.css" rel="stylesheet">
+  
+  
 </head>
 <body>
   
