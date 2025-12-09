@@ -100,11 +100,11 @@ function link_or_login($target) {
         </div>
         <nav class="nav-links" aria-label="Navigazione principale">
           <?php if ($isLoggedIn) { ?>
-            <a href="catalogo.php">Catalogo</a>
-            <a href="prenotazioni.php">Prenotazioni</a>
+            <a href="/pages/catalogo.php">Catalogo</a>
+            <a href="/pages/prenotazioni.php">Prenotazioni</a>
           <?php } else { ?>
-            <a href="<?php echo htmlspecialchars(link_or_login('catalogo.php'), ENT_QUOTES, 'UTF-8'); ?>" title="Accedi per aprire il catalogo">Catalogo</a>
-            <a href="<?php echo htmlspecialchars(link_or_login('prenotazioni.php'), ENT_QUOTES, 'UTF-8'); ?>" title="Accedi per prenotare">Prenotazioni</a>
+            <a href="<?php echo htmlspecialchars(link_or_login('pages/catalogo.php'), ENT_QUOTES, 'UTF-8'); ?>" title="Accedi per aprire il catalogo">Catalogo</a>
+            <a href="<?php echo htmlspecialchars(link_or_login('pages/prenotazioni.php'), ENT_QUOTES, 'UTF-8'); ?>" title="Accedi per prenotare">Prenotazioni</a>
           <?php } ?>
         </nav>
       </div>
@@ -114,7 +114,7 @@ function link_or_login($target) {
           <span aria-label="Utente loggato">👤 <?php echo htmlspecialchars($userName, ENT_QUOTES, 'UTF-8'); ?></span>
           <a href="logout.php">Esci</a>
         <?php } else { ?>
-          <a href="register.php">Registrati</a>
+          <a href="pages/register.php">Registrati</a>
           <a href="login.php">Accedi</a>
         <?php } ?>
       </div>
@@ -128,13 +128,13 @@ function link_or_login($target) {
 
     <?php if ($isLoggedIn) { ?>
       <div class="cta-group" role="group" aria-label="Azioni principali">
-        <a class="btn btn-primary" href="catalogo.php">Vai al Catalogo</a>
-        <a class="btn btn-secondary" href="prenotazioni.php">Prenotazioni</a>
+        <a class="btn btn-primary" href="pages/catalogo.php">Vai al Catalogo</a>
+        <a class="btn btn-secondary" href="pages/prenotazioni.php">Prenotazioni</a>
       </div>
     <?php } else { ?>
       <div class="cta-group" role="group" aria-label="Azioni principali">
         <a class="btn btn-primary" href="<?php echo htmlspecialchars(link_or_login('login.php'), ENT_QUOTES, 'UTF-8'); ?>">Accedi</a>
-        <a class="btn btn-secondary" href="register.php">Registrati</a>
+        <a class="btn btn-secondary" href="pages/register.php">Registrati</a>
       </div>
       <p class="note" role="note">Per accedere a Catalogo e Prenotazioni è necessario effettuare il login.</p>
     <?php } ?>
@@ -147,9 +147,9 @@ function link_or_login($target) {
       <p>Consulta l’elenco delle attrezzature, schede e disponibilità.</p>
       <div class="card-actions">
         <?php if ($isLoggedIn) { ?>
-          <a class="btn btn-primary" href="catalogo.php">Apri Catalogo</a>
+          <a class="btn btn-primary" href="pages/catalogo.php">Apri Catalogo</a>
         <?php } else { ?>
-          <a class="btn btn-secondary" href="<?php echo htmlspecialchars(link_or_login('catalogo.php'), ENT_QUOTES, 'UTF-8'); ?>" title="Accedi per aprire il catalogo">Accedi per il Catalogo</a>
+          <a class="btn btn-secondary" href="<?php echo htmlspecialchars(link_or_login('pages/catalogo.php'), ENT_QUOTES, 'UTF-8'); ?>" title="Accedi per aprire il catalogo">Accedi per il Catalogo</a>
         <?php } ?>
       </div>
     </article>
@@ -159,9 +159,9 @@ function link_or_login($target) {
       <p>Richiedi e gestisci le prenotazioni delle attrezzature.</p>
       <div class="card-actions">
         <?php if ($isLoggedIn) { ?>
-          <a class="btn btn-primary" href="prenotazioni.php">Apri Prenotazioni</a>
+          <a class="btn btn-primary" href="pages/prenotazioni.php">Apri Prenotazioni</a>
         <?php } else { ?>
-          <a class="btn btn-secondary" href="<?php echo htmlspecialchars(link_or_login('prenotazioni.php'), ENT_QUOTES, 'UTF-8'); ?>" title="Accedi per prenotare">Accedi per le Prenotazioni</a>
+          <a class="btn btn-secondary" href="<?php echo htmlspecialchars(link_or_login('pages/prenotazioni.php'), ENT_QUOTES, 'UTF-8'); ?>" title="Accedi per prenotare">Accedi per le Prenotazioni</a>
         <?php } ?>
       </div>
     </article>
@@ -170,7 +170,7 @@ function link_or_login($target) {
       <h3>Guida</h3>
       <p>Come funziona il sistema e regole d’uso delle attrezzature.</p>
       <div class="card-actions">
-        <a class="btn btn-secondary" href="guida.php">Leggi la Guida</a>
+        <a class="btn btn-secondary" href="pages/guida.php">Leggi la Guida</a>
       </div>
     </article>
   </section>
