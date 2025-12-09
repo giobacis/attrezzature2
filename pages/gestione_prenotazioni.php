@@ -87,10 +87,10 @@ $prenotazioni = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </td>
                 <td>
                 <?php if ($p['stato'] === 'in_attesa'): ?>
-                <a href="prenotazione_approva.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>&email=<?= urlencode($p['email']) ?>" class="btn btn-success btn-sm"><i class='fas fa-check'></i></a>
-                <a href="prenotazione_rifiuta.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>" class="btn btn-danger btn-sm"><i class='fas fa-times'></i></a>
+                <a href="prenotazione_approva.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>&email=<?= urlencode($p['email']) ?>" class="btn btn-success btn-sm"><i class='fas fa-check me-1'></i>Approva</a>
+                <a href="prenotazione_rifiuta.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>" class="btn btn-danger btn-sm"><i class='fas fa-times me-1'></i>Rifiuta</a>
                 <?php elseif ($p['stato'] === 'approvato'): ?>
-                <a href="prenotazione_rientro.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>" class="btn btn-primary btn-sm"><i class='fas fa-undo'></i></a>
+                <a href="prenotazione_rientro.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>" class="btn btn-primary btn-sm"><i class='fas fa-undo'></i>Rientro</a>
                 <?php endif; ?>
                 </td>
                 </tr>
