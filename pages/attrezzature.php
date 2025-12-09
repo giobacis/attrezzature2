@@ -3,8 +3,24 @@
 include __DIR__ . '/../config.php';
 include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/sidebar.php';
-
 $cats = $pdo->query("SELECT id_categoria, descrizione FROM tbl_categoria ORDER BY descrizione")->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+  <!-- HERO top bar (preserve left nav) -->
+  <section class="hero-cta text-white w-100">
+    <div class="container d-flex flex-wrap align-items-center gap-2">
+      <div class="brand fw-bold">Gestione • Attrezzature</div>
+      <div class="ms-auto w-100 w-lg-auto d-flex align-items-center gap-2">
+        <?php include __DIR__.'/../includes/user_badge.php'; ?>
+        <div class="btn-group" role="group" aria-label="Tema">
+          <button type="button" class="btn btn-sm btn-outline-light" data-theme="light" title="Tema chiaro">Chiaro</button>
+          <button type="button" class="btn btn-sm btn-outline-light" data-theme="dark" title="Tema scuro">Scuro</button>
+          <button type="button" class="btn btn-sm btn-outline-light" data-theme="auto" title="Segui sistema">Sistema</button>
+        </div>
+      </div>
+    </div>
+  </section>
+<?php
 $stats= $pdo->query("SELECT id_stato, descrizione FROM tbl_stati ORDER BY descrizione")->fetchAll(PDO::FETCH_ASSOC);
 $pos  = $pdo->query("SELECT id_posizione, descrizione FROM tbl_posizioni ORDER BY descrizione")->fetchAll(PDO::FETCH_ASSOC);
 

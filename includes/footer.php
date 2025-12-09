@@ -9,5 +9,22 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Global theme toggler: set data-theme on <html> and persist choice
+  (function(){
+    function applyTheme(t){
+      var html=document.documentElement;
+      if(t==='auto'){ html.removeAttribute('data-theme'); }
+      else { html.setAttribute('data-theme', t); }
+      try{ localStorage.setItem('app_theme', t); }catch(e){}
+    }
+    var saved=null; try{ saved=localStorage.getItem('app_theme'); }catch(e){}
+    if(saved) applyTheme(saved);
+    document.addEventListener('click', function(e){
+      var b = e.target.closest('[data-theme]'); if(!b) return;
+      applyTheme(b.getAttribute('data-theme'));
+    });
+  })();
+</script>
 </body>
 </html>

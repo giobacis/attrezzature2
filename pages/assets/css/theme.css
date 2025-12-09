@@ -17,6 +17,9 @@ html[data-theme="dark"] {
   --border: #344050;
   --hero-start: #0a58ca;
   --hero-end: #042f72;
+  /* table row alternation for dark theme */
+  --row-bg-1: #2E3F54;
+  --row-bg-2: #192229;
 }
 /* auto: segue prefers-color-scheme */
 @media (prefers-color-scheme: dark) {
@@ -48,3 +51,41 @@ body { background: var(--bg); color: var(--text); }
 
 /* Piccole utilità */
 .btn-light { color: #212529; }
+
+/* Dark-theme table row striping */
+html[data-theme="dark"] .table tbody tr:nth-child(odd) {
+  background-color: var(--row-bg-1);
+}
+html[data-theme="dark"] .table tbody tr:nth-child(even) {
+  background-color: var(--row-bg-2);
+}
+html[data-theme="dark"] .table tbody td,
+html[data-theme="dark"] .table tbody th {
+  color: #ffffff;
+}
+
+/* Stronger overrides to avoid Bootstrap/DataTables light backgrounds */
+html[data-theme="dark"] .table,
+html[data-theme="dark"] .table-responsive,
+html[data-theme="dark"] .table tbody {
+  background: transparent !important;
+}
+html[data-theme="dark"] .table thead.table-light th,
+html[data-theme="dark"] .table thead th {
+  background: transparent !important;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] .table tbody tr:nth-child(odd) td,
+html[data-theme="dark"] .table tbody tr:nth-child(even) td {
+  background: transparent !important;
+}
+html[data-theme="dark"] .table tbody tr:nth-child(odd) {
+  background-color: var(--row-bg-1) !important;
+}
+html[data-theme="dark"] .table tbody tr:nth-child(even) {
+  background-color: var(--row-bg-2) !important;
+}
+html[data-theme="dark"] .table tbody td,
+html[data-theme="dark"] .table tbody th {
+  color: #ffffff !important;
+}

@@ -5,27 +5,41 @@ $required_role = 'IT';
 require __DIR__.'/../includes/require_login.php';
 ?>
 <!doctype html>
-<html lang="it">
+<html lang="it" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard IT</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
   <style>
     .card-icon {font-size: 1.75rem; line-height: 1;}
   </style>
 </head>
 <body>
-  <div class="container pt-3">
-    <?php include __DIR__.'/../includes/user_badge.php'; ?>
-  </div>
 
-  <div class="container py-3">
+  <section class="hero-cta text-white">
+    <div class="container d-flex flex-wrap align-items-center gap-2">
+      <div class="brand fw-bold">Dashboard • Attrezzature</div>
+      <div class="ms-auto w-100 w-lg-auto d-flex align-items-center gap-2">
+        <?php include __DIR__.'/../includes/user_badge.php'; ?>
+        <div class="btn-group" role="group" aria-label="Tema">
+          <button type="button" class="btn btn-sm btn-outline-light" data-theme="light" title="Tema chiaro">Chiaro</button>
+          <button type="button" class="btn btn-sm btn-outline-light" data-theme="dark" title="Tema scuro">Scuro</button>
+          <button type="button" class="btn btn-sm btn-outline-light" data-theme="auto" title="Segui sistema">Sistema</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container py-4">
     <div class="d-flex align-items-center justify-content-between mb-3">
       <h1 class="h4 mb-0">Dashboard IT</h1>
-      <div>
+      <div class="d-flex align-items-center gap-2">
         <a class="btn btn-outline-secondary" href="home.php">Home Admin</a>
-        <a class="btn btn-outline-dark" href="catalogo.php">Catalogo</a>
+        <a class="btn btn-outline-dark" href="catalogo.php">Apri catalogo</a>
       </div>
     </div>
     <p class="text-muted">Area riservata a IT/ADMIN. Usa le scorciatoie qui sotto per entrare nella gestione.</p>
@@ -104,5 +118,21 @@ require __DIR__.'/../includes/require_login.php';
 
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Simple theme switcher: sets data-theme on <html> (matches theme.css selectors)
+    (function(){
+      function applyTheme(t){
+        var html=document.documentElement;
+        if(t==='auto'){ html.removeAttribute('data-theme'); }
+        else { html.setAttribute('data-theme', t); }
+        try{ localStorage.setItem('app_theme', t); }catch(e){}
+      }
+      var saved=null; try{ saved=localStorage.getItem('app_theme'); }catch(e){}
+      if(saved) applyTheme(saved);
+      document.querySelectorAll('[data-theme]').forEach(function(b){ b.addEventListener('click',function(){ applyTheme(b.getAttribute('data-theme')); }); });
+    })();
+  </script>
 </body>
 </html>
