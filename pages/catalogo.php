@@ -116,28 +116,55 @@ function statoBadgeClass($id){
           $userEmail = $_SESSION['email'] ?? null;
           $userRole  = $_SESSION['role'] ?? null;
         ?>
-        <div class="hero-user d-flex flex-wrap align-items-center gap-2">
-          <div class="me-auto">
-            <span class="fw-semibold">Utente:</span>
-            <span class="opacity-75"><?= htmlspecialchars($userEmail ?: '—') ?></span>
-            <span class="ms-3 fw-semibold">Ruolo:</span>
-            <span class="badge bg-light text-dark"><?= htmlspecialchars($userRole ?: '—') ?></span>
-          </div>
-          <div class="d-flex align-items-center gap-2">
-            <div class="btn-group" role="group" aria-label="Tema">
-              <button type="button" class="btn btn-sm btn-outline-light" data-theme="light" title="Tema chiaro">Chiaro</button>
-              <button type="button" class="btn btn-sm btn-outline-light" data-theme="dark" title="Tema scuro">Scuro</button>
-              <button type="button" class="btn btn-sm btn-outline-light" data-theme="auto" title="Segui sistema">Sistema</button>
+        <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], ['ADMIN','IT','SUPER_ADMIN'], true)): ?>
+          <?php include __DIR__ . '/../includes/user_badge.php'; ?>
+        <?php else: ?>
+          <div class="hero-user d-flex flex-wrap align-items-center gap-2">
+            <div class="me-auto">
+              <span class="fw-semibold">Utente:</span>
+              <span class="opacity-75"><?= htmlspecialchars($userEmail ?: '—') ?></span>
+              <span class="ms-3 fw-semibold">Ruolo:</span>
+              <span class="badge bg-light text-dark"><?= htmlspecialchars($userRole ?: '—') ?></span>
             </div>
-            <a class="btn btn-sm btn-light" href="<?php echo $baseToRoot; ?>logout.php">Logout</a>
+            <div class="d-flex align-items-center gap-2">
+              <div class="btn-group" role="group" aria-label="Tema">
+                <button type="button" class="btn btn-sm btn-outline-light" data-theme="light" title="Tema chiaro">Chiaro</button>
+                <button type="button" class="btn btn-sm btn-outline-light" data-theme="dark" title="Tema scuro">Scuro</button>
+                <button type="button" class="btn btn-sm btn-outline-light" data-theme="auto" title="Segui sistema">Sistema</button>
+              </div>
+              <a class="btn btn-sm btn-light" href="<?php echo $baseToRoot; ?>logout.php">Logout</a>
+            </div>
           </div>
-        </div>
+        <?php endif; ?>
       </div>
     </div>
   </section>
 
   <main class="app-main">
-    <div class="container">
+    <?php if (isset($_SESSION['role']) && in_array($_SESSION['role'], ['ADMIN','IT','SUPER_ADMIN'], true)): ?>
+      <div class="container">
+        <div class="row">
+          <aside class="col-lg-3 mb-3">
+            <div class="card sticky-top">
+              <div class="card-body">
+                <h6 class="mb-3">Area Admin</h6>
+                <nav class="nav flex-column">
+                  <a class="nav-link" href="dashboard.php"><i class="bi bi-house-door me-2"></i> Dashboard</a>
+                  <a class="nav-link" href="attrezzature.php"><i class="bi bi-tools me-2"></i> Attrezzature</a>
+                  <a class="nav-link" href="categorie.php"><i class="bi bi-tags me-2"></i> Categorie</a>
+                  <a class="nav-link" href="fornitori.php"><i class="bi bi-briefcase me-2"></i> Fornitori</a>
+                  <a class="nav-link" href="posizioni.php"><i class="bi bi-geo-alt me-2"></i> Posizioni</a>
+                  <hr />
+                  <a class="nav-link" href="gestione_prenotazioni.php"><i class="bi bi-ui-checks-grid me-2"></i> Prenotazioni</a>
+                  <a class="nav-link" href="prenotazioni.php"><i class="bi bi-calendar3 me-2"></i> Calendario</a>
+                </nav>
+              </div>
+            </div>
+          </aside>
+          <div class="col-lg-9">
+    <?php else: ?>
+      <div class="container">
+    <?php endif; ?>
       <div class="mb-4">
         <h2 class="h5 mb-1">Prenota l'attrezzatura giusta, al momento giusto.</h2>
         <p class="text-muted mb-0">Filtra, cerca e invia la richiesta in un minuto. La disponibilità è aggiornata in tempo reale.</p>

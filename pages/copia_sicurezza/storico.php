@@ -5,7 +5,7 @@ include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/sidebar_user.php';
 include __DIR__ . '/../config.php';
 ?>
-<div class='col-md-10 p-4'>
+<div class='p-4'>
 <h2>Storico Prenotazioni</h2>
 <table class='table table-striped'>
 <thead><tr><th>Attrezzatura</th><th>Data Uscita</th><th>Rientro Previsto</th><th>Stato</th></tr></thead>

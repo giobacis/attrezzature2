@@ -107,6 +107,18 @@ body {
 .table thead th { text-align:left; border-bottom:1px solid var(--border); padding:.75rem 1rem; }
 .table tbody td { border-bottom:1px solid var(--border); padding:.75rem 1rem; }
 
+/* Alternating rows (row1 / row2) used by themed pages */
+.table tbody tr.row1 td { background-color: rgba(255,255,255,0.02); }
+.table tbody tr.row2 td { background-color: transparent; }
+.table tbody tr:hover td { background-color: rgba(255,255,255,0.04); }
+
+/* Action buttons: full-width on very small screens, inline on larger */
+.action-btn { display:inline-flex; align-items:center; justify-content:center; }
+@media (max-width: 576px) {
+  .action-btn { display:block; width:100%; margin-bottom:.5rem; }
+  .action-btn + .action-btn { margin-left:0; }
+}
+
 /* Toast/Alert minimi */
 .alert { border:1px solid var(--border); border-radius:.5rem; padding: .75rem 1rem; background:#fff; }
 .alert-secondary { background: var(--surface); }

@@ -5,7 +5,7 @@ include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/sidebar.php';
 include __DIR__ . '/../config.php';
 ?>
-<div class='col-md-10 p-4'>
+<div class='p-4'>
 <h2>Categorie</h2>
 <form class='row g-3 mb-3' method='post' action='categorie_save.php'>
   <div class='col-md-4'><input type='text' name='descrizione' class='form-control' placeholder='Descrizione' required></div>

@@ -16,7 +16,7 @@ if ($stato) {
 }
 $prenotazioni = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class='col-md-10 p-4'>
+<div class='p-4'>
 <h2 class='mb-4'><i class='fas fa-tasks'></i> Gestione Prenotazioni</h2>
 <form method='GET' class='row g-3 mb-3'>
     <div class='col-auto'>

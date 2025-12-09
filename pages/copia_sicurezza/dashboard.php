@@ -4,7 +4,7 @@ include __DIR__ . '/../includes/auth_check.php';
 include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/sidebar.php';
 ?>
-<div class='col-md-10 p-4'>
+<div class='p-4'>
   <h2>Dashboard IT</h2>
   <p>Benvenuto nella gestione interna.</p>
   <div class='row g-3'>

@@ -14,7 +14,7 @@ $data_uscita = $_GET['data_uscita'] ?? '';
 $data_prev_rientro = $_GET['data_prev_rientro'] ?? '';
 $email = $_GET['email'] ?? '';
 ?>
-<div class='col-md-10 p-4'>
+<div class='p-4'>
 <div class='card shadow-sm p-4'>
 <?php
 if ($id_prodotto && $data_uscita && $data_prev_rientro && $email) {

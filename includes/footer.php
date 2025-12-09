@@ -25,6 +25,13 @@
       applyTheme(b.getAttribute('data-theme'));
     });
   })();
+    // Initialize Bootstrap tooltips (for elements using data-bs-toggle="tooltip")
+    (function(){
+      try{
+        var tlist = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tlist.forEach(function(el){ if(window.bootstrap && bootstrap.Tooltip) new bootstrap.Tooltip(el); });
+      }catch(e){ /* ignore */ }
+    })();
 </script>
 </body>
 </html>

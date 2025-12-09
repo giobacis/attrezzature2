@@ -14,7 +14,7 @@ $stmt=$pdo->prepare('SELECT * FROM tbl_fornitori WHERE id_fornitore=?');
 $stmt->execute([$id]);
 $f=$stmt->fetch();
 ?>
-<div class='col-md-10 p-4'>
+<div class='p-4'>
 <div class='card shadow'>
   <div class='card-header bg-primary text-white'>Modifica Fornitore</div>
   <div class='card-body'>

@@ -87,8 +87,8 @@ $prenotazioni = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </td>
                 <td>
                 <?php if ($p['stato'] === 'in_attesa'): ?>
-                <a href="prenotazione_approva.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>&email=<?= urlencode($p['email']) ?>" class="btn btn-success btn-sm"><i class='fas fa-check me-1'></i>Approva</a>
-                <a href="prenotazione_rifiuta.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>" class="btn btn-danger btn-sm"><i class='fas fa-times me-1'></i>Rifiuta</a>
+                <a href="prenotazione_approva.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>&email=<?= urlencode($p['email']) ?>" class="btn btn-success btn-sm action-btn w-100 w-sm-auto mb-2 mb-sm-0" data-bs-toggle="tooltip" title="Approva"><i class='fas fa-check me-1'></i>Approva</a>
+                <a href="prenotazione_rifiuta.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>" class="btn btn-danger btn-sm action-btn w-100 w-sm-auto" data-bs-toggle="tooltip" title="Rifiuta"><i class='fas fa-times me-1'></i>Rifiuta</a>
                 <?php elseif ($p['stato'] === 'approvato'): ?>
                 <a href="prenotazione_rientro.php?id_prodotto=<?= urlencode($p['id_prodotto']) ?>&data_uscita=<?= urlencode($p['data_uscita']) ?>&data_prev_rientro=<?= urlencode($p['data_prev_rientro']) ?>" class="btn btn-primary btn-sm"><i class='fas fa-undo'></i>Rientro</a>
                 <?php endif; ?>

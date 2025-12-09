@@ -4,7 +4,7 @@ include __DIR__ . '/../includes/auth_check.php';
 include __DIR__ . '/../includes/header.php';
 include __DIR__ . '/../includes/sidebar.php';
 ?>
-<div class='col-md-10 p-4'>
+<div class='p-4'>
 <h2 class='mb-4'><i class='fas fa-calendar-alt'></i> Calendario Prenotazioni</h2>
 <div id='calendar' class='border rounded p-3 bg-white shadow-sm'></div>
 </div></div></div>
